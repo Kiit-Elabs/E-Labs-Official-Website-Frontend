@@ -36,11 +36,11 @@ function Feedback() {
 
   return (
     <div className="flex flex-col items-center justify-around dark:bg-[radial-gradient(circle_at_center,#fff_1%,#ffedde_20%,#ffd4b3_50%)] py-20 p-4 xl:pl-16 w-full">
-      <h1 className="sm:text-5xl text-4xl font-black text-textColor1 mb-8 text-center">
+      <h1 className="sm:text-5xl text-4xl text-balance font-black text-textColor1 mb-8 text-center">
         Feedback from our Students
       </h1>
 
-      <div className="flex w-[100%] mx-20 overflow-hidden my-10">
+      <div className="flex w-full mx-20 overflow-hidden my-10">
         <div
           className="flex transition-transform duration-700 ease-in-out w-full"
           style={{
@@ -53,7 +53,7 @@ function Feedback() {
               className="flex-shrink-0 px-2"
               style={{ width: `${100 / visibleCards}%` }}
             >
-              <div className="max-w-sm mx-auto">
+              <div className="max-w-[90%] mx-auto">
                 <FeedbackCard
                   name={feedback.name}
                   feedback={feedback.feedback}

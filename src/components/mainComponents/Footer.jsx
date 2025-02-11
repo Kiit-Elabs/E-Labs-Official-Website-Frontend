@@ -22,10 +22,7 @@ function Footer() {
             heading={`Address`}
             array={[
               {
-                desc: `KIIT UNIVERSITY, Campus 12 
-Old Electronics Building,
-Patia, Bhubaneswar,
-Odisha India 751024`,
+                desc: `KIIT UNIVERSITY, Campus 12\nOld Electronics Building,\nPatia, Bhubaneswar,\nOdisha India 751024`,
                 url: `https://maps.app.goo.gl/h36RsZRuY5ng6a9o9`,
               },
             ]}

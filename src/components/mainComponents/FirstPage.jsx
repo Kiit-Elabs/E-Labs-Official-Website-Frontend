@@ -22,7 +22,7 @@ function FirstPage() {
 
   return (
     <div className="flex flex-col items-center justify-center flex-grow dark:bg-[radial-gradient(circle_at_center,#fff_10%,#ffedde_30%,#ffd4b3_80%)]">
-      <div className="flex scale-95 flex-col items-center justify-center  gap-6">
+      <div className="flex scale-95 flex-col items-center justify-center gap-6 w-full">
         <motion.figure
           variants={firstVariant}
           initial="initial"
@@ -32,7 +32,6 @@ function FirstPage() {
           <img
             src="https://res.cloudinary.com/dpqdgcipi/image/upload/v1719200986/Trasnparent12_1_d7siyr.png"
             width={256}
-            alt=""
           />
         </motion.figure>
         <div className="heading flex items-center justify-center flex-col gap-2">
@@ -42,15 +41,17 @@ function FirstPage() {
           >
             Empowering Through Collaboration
           </motion.h1>
-          <motion.h2
-            animate={{ scale: 1.2 }}
-            className="text-textColor1 text-center font-black text-xl md:text-3xl"
+          <motion.div
+            animate={{ scale: 1 }}
+            className="text-textColor1 text-center font-black flex flex-wrap justify-center items-center gap-2"
           >
-            Peer-to-Peer Learning at{" "}
-            <span className="text-3xl md:text-5xl text-center font-black break-inside-avoid whitespace-nowrap">
+            <span className="text-2xl md:text-4xl text-center font-black break-inside-avoid whitespace-nowrap flex">
+              Peer-to-Peer Learning at
+            </span>
+            <span className="text-4xl md:text-6xl text-center font-black break-inside-avoid whitespace-nowrap flex">
               E Labs
             </span>
-          </motion.h2>
+          </motion.div>
         </div>
         <p className="text-textColor2 dark:text-black max-w-96 text-center">
           Join us as we foster a community-driven approach to knowledge.

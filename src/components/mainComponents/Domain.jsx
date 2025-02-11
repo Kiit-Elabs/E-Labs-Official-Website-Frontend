@@ -6,7 +6,7 @@ function Domain() {
 
   return (
     <div className="w-full font-verna mt-12 h-full flex flex-col items-center justify-center">
-      <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-8 text-textColor1 mx-3 text-center">
+      <h1 className="text-4xl text-balance md:text-5xl font-black mb-8 text-textColor1 mx-3 text-center">
         Introducing Our Domains
       </h1>
       <div
@@ -26,7 +26,7 @@ function Domain() {
               key={element.domain}
             >
               <div
-                className="flex font-verna flex-col items-center justify-center rounded-[15px] border-[4px] border-[#F7941D] bg-[#0B1215] h-52 gap-2.5 w-full p-3"
+                className="flex font-verna flex-col items-center justify-center rounded-[15px] border-[4px] border-[#F7941D] bg-[#0B1215] h-52 gap-2.5 w-full p-2"
                 style={{
                   borderColor: "var(--Border-Gradient, #F7941D)",
                   backgroundColor: "var(--Background-Color, #0B1215)",
@@ -40,7 +40,7 @@ function Domain() {
                   />
                 </div>
                 <div className="flex items-start justify-center w-full">
-                  <p className="text-center h-[50%] font-bold text-[120%] leading-normal text-[#FFFAFA]">
+                  <p className="text-center h-[50%] font-bold text-[22px] w-full text-wrap leading-normal text-[#FFFAFA]">
                     {element.domain}
                   </p>
                 </div>

@@ -2,9 +2,9 @@ import React from "react";
 
 function Social() {
   return (
-    <div className="flex flex-col gap-4 min-w-48">
+    <div className="flex flex-col gap-4 min-w-48 sm:text-left text-center">
       <h1 className="font-extrabold text-xl text-textColor1">Follow Us On</h1>
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1 items-center sm:items-start">
         <div className="flex flex-col text-textColor2 dark:text-black text-sm gap-2">
           <div className="flex text-textColor2 dark:text-black text-sm gap-2 justify-start items-center m-0 p-0">
             <img src="../Images/linkedin (1).png" alt="" width={18} />

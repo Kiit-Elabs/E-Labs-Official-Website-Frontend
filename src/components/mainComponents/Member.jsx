@@ -38,7 +38,7 @@ function Member() {
 
   return (
     <div className="w-full flex flex-col flex-wrap items-center justify-center text-center pt-32 dark:bg-[radial-gradient(circle_at_center,#fff_1%,#ffedde_20%,#ffd4b3_50%)]">
-      <h1 className="text-5xl font-black mb-14 text-textColor1 ">
+      <h1 className="sm:text-5xl text-4xl font-black mb-14 text-textColor1 mx-3 text-balance">
         Meet With Our Team
       </h1>
       <Slider

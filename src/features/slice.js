@@ -309,7 +309,7 @@ const initialState = {
     },
 
     {
-      domain: "PHOTOGRAPGY & VIDEO-EDITING",
+      domain: "PHOTOGRAPGY & VIDEO EDITING",
       img: "/Images/Logo/PhotoVideoEditing.png",
       sec: "iot",
       resUrls: [

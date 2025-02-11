@@ -9,7 +9,7 @@ function About() {
     <div className="flex flex-wrap items-center justify-evenly mt-4 min-h-screen gap-8 mx-8">
       <Card />
       <HPCard
-        heading="E - Labs"
+        heading="E Labs"
         userClass="text-6xl font-black"
         description={desc}
       />
