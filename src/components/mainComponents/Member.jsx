@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import MemberCard from "../subComponents/MemberCard";
 import { useSelector } from "react-redux";
 import { FaArrowCircleRight } from "react-icons/fa";
+import "../../styles/Slider.css";
 
 // function CustomNextArrow(props) {
 //   const { className, style, onClick } = props;
@@ -32,12 +33,39 @@ function Member() {
     autoplay: true,
     swipeToSlide: true,
     // nextArrow: <CustomNextArrow />,
+        responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+
   };
 
   let memberDetails = useSelector((state) => state.memberDetails);
 
   return (
-    <div className="w-full flex flex-col flex-wrap items-center justify-center text-center pt-32 dark:bg-[radial-gradient(circle_at_center,#fff_1%,#ffedde_20%,#ffd4b3_50%)]">
+    <div className="w-full flex flex-col flex-wrap items-center justify-center text-center mt-24 dark:bg-[radial-gradient(circle_at_center,#fff_1%,#ffedde_20%,#ffd4b3_50%)] mb-32 px-3">
       <h1 className="sm:text-5xl text-4xl font-black mb-14 text-textColor1 mx-3 text-balance">
         Meet With Our Team
       </h1>

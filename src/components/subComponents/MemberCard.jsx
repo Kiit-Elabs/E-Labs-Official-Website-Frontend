@@ -8,18 +8,18 @@ function MemberCard({
   return (
     <div className="flex flex-wrap-reverse justify-center items-center">
       <div
-        className={`w-80 flex flex-col justify-center gap-3 items-center h-[28rem] border-2 border-textColor1 rounded-md backdrop-blur-lg pt-2`}
+        className={`w-[70%] flex flex-col justify-center gap-3 items-center border-2 border-textColor1 rounded-md backdrop-blur-lg pt-2`}
       >
-        <div>
-          <figure className="border-neutral-300 border-2 rounded-md overflow-hidden object-cover">
-            <img src={imgSource} alt="" width={225} height={200} />
+        <div className="h-1/2 justify-center items-center p-5">
+          <figure className="border-neutral-300 border-2 rounded-md overflow-hidden aspect-square object-cover">
+            <img src={imgSource} width={225} height={200} />
           </figure>
         </div>
-        <div className="flex flex-col justify-center items-center">
-          <p className="text-3xl font-bold text-textColor1">
+        <div className="flex flex-col justify-center items-stat h-1/2 mx-3 gap-2 mb-4">
+          <h1 className="text-xl sm:text-[25px] font-bold text-textColor1">
             {name.toUpperCase()}
-          </p>
-          <p className="text-textColor2 font-thin">{position.toUpperCase()}</p>
+          </h1>
+          <p className="text-lg text-textColor2 font-thin">{position.toUpperCase()}</p>
         </div>
       </div>
     </div>
