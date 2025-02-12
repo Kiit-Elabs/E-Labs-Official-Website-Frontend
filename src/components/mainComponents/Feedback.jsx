@@ -35,7 +35,7 @@ function Feedback() {
   }, [feedbacks.length]);
 
   return (
-    <div className="flex flex-col items-center justify-around dark:bg-[radial-gradient(circle_at_center,#fff_1%,#ffedde_20%,#ffd4b3_50%)] py-20 p-4 xl:pl-16 w-full">
+    <div className="flex flex-col items-center justify-around dark:bg-[radial-gradient(circle_at_center,#fff_1%,#ffedde_20%,#ffd4b3_50%)] py-20 p-4 xl:px-8 w-full">
       <h1 className="sm:text-5xl text-4xl text-balance font-black text-textColor1 mb-8 text-center">
         Feedback from our Students
       </h1>
