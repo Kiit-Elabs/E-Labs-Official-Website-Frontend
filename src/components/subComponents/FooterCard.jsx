@@ -9,7 +9,7 @@ function FooterCard({ heading = "Heading", array = [], icon1 }) {
       <div>
         {array.map((el) => {
           return (
-            <pre className="sm:text-left text-center">
+            <pre className="sm:text-left text-center" key={el.desc}>
               <a
                 target="_blank"
                 href={el.url}

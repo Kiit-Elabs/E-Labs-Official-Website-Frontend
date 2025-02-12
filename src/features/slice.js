@@ -26,14 +26,19 @@ const initialState = {
 
   memberDetails: [
     {
-      name: "Md Asif Nawaz",
-      position: "Asst.Lead Coordinator",
-      // imgSrc:
-      //   "https://res.cloudinary.com/dpqdgcipi/image/upload/v1720237114/1676480037898_jypfgp.jpg",
+      name: "Md. Asif Nawaz",
+      position: "Lead",
+      domain: "Web Development",
+      imgSrc:
+        "https://res.cloudinary.com/dpqdgcipi/image/upload/v1720237114/1676480037898_jypfgp.jpg",
+      github: "https://github.com",
+      linkedin: "https://linkedin.com",
+      instagram: "https://instagram.com",
     },
     {
-      name: "Md Asif Nawaz",
-      position: "Asst.Lead Coordinator",
+      name: "Soumyadeep Kundu",
+      position: "Assistant Lead",
+      domain: "Web Development",
       // imgSrc:
       //   "https://res.cloudinary.com/dpqdgcipi/image/upload/v1720237114/1676480037898_jypfgp.jpg",
     },
