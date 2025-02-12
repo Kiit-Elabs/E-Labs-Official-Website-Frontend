@@ -1,4 +1,4 @@
-.slick-arrow:before {
-  color: #f7941d;
-  font-size: 30px;
+.slick-next::before,
+.slick-prev::before {
+  content: none;
 }

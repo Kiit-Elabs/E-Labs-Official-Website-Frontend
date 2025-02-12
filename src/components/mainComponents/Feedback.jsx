@@ -42,7 +42,7 @@ function Feedback() {
 
       <div className="flex w-full mx-20 overflow-hidden my-10">
         <div
-          className="flex transition-transform duration-700 ease-in-out w-full"
+          className="flex transition-transform duration-700 ease-in-out w-full justify center"
           style={{
             transform: `translateX(-${currentIndex * (100 / visibleCards)}%)`,
           }}
@@ -53,7 +53,7 @@ function Feedback() {
               className="flex-shrink-0 px-2"
               style={{ width: `${100 / visibleCards}%` }}
             >
-              <div className="max-w-[90%] mx-auto">
+              <div className="max-w-[80%] mx-auto">
                 <FeedbackCard
                   name={feedback.name}
                   feedback={feedback.feedback}
