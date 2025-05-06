@@ -24,6 +24,7 @@ import Project from "./components/mainComponents/Project.jsx";
 import Gallery from "./components/mainComponents/Gallery.jsx";
 import AddEvent from "./components/mainComponents/AddEvent.jsx";
 import EventRegistration from "./components/subComponents/EventRegistration.jsx";
+import EventDetails from "./components/subComponents/EventDetails.jsx";
 import SubmissionSuccess from "./components/subComponents/SubmissionSuccess.jsx";
 import AddMember from "./components/mainComponents/AddMember.jsx";
 import SubmitFeedback from "./components/mainComponents/SubmitFeedback.jsx";
@@ -45,6 +46,7 @@ const route = createBrowserRouter(
       <Route path="courses/:sec" element={<Materials />}></Route>
       <Route path="courses/:sec/:pdf" element={<PdfView />}></Route>
       <Route path="events" element={<Events />}></Route>
+      <Route path="events/:eventid" element={<EventDetails />}></Route>
       <Route path="register/:eventid" element={<EventRegistration />}></Route>
       <Route path="/submission-success" element={<SubmissionSuccess />} />
       <Route path="members" element={<Member />}></Route>
