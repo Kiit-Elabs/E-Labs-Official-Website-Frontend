@@ -17,7 +17,7 @@ function HPCard({
         </h3>
       </div>
       <div>
-        <p className="text-textColor2 dark:text-black max-w-[60ch] text-wrap">
+        <p className="text-textColor2 dark:text-black max-w-[60ch] text-wrap text-left">
           {description}
         </p>
       </div>

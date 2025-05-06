@@ -24,9 +24,9 @@ function Home() {
       <section id="domain">
         <Domain />
       </section>
-      {/* <section id="eventPage">
+      <section id="eventPage">
         <Events />
-      </section> */}
+      </section>
       <section id="membersPage">
         <Member />
       </section>
