@@ -24,7 +24,10 @@ function Events() {
         className="flex items-center justify-center w-[90%] px-0"
       >
         {events.map((el) => (
-          <div className="w-full flex flex-wrap-reverse items-start justify-evenly">
+          <div
+            className="w-full flex flex-wrap-reverse items-start justify-evenly"
+            key={el.id}
+          >
             <EventDetails eventInfo={el} />
           </div>
         ))}
