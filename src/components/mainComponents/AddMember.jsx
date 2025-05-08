@@ -4,7 +4,7 @@ import {
   Image,
   Autocomplete,
   AutocompleteItem,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import { FaCamera } from "react-icons/fa";
 import { FileUploader } from "../subComponents/FileUploader";
 
