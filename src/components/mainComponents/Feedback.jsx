@@ -1,11 +1,21 @@
 import { useState, useEffect, useCallback } from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import FeedbackCard from "../subComponents/FeedbackCard";
 
 function Feedback() {
-  const feedbacks = useSelector((state) => state.feedback);
+  // const feedbacks = useSelector((state) => state.feedback);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleCards, setVisibleCards] = useState(3);
+  const [feedbacks, setFeedbacks] = useState([]);
+
+  useEffect(() => {
+    const fetchFeedbacks = async () => {
+      const response = await fetch(import.meta.env.VITE_GET_FEEDBACK_URI);
+      const data = await response.json();
+      setFeedbacks(data.feedback);
+    };
+    fetchFeedbacks();
+  }, []);
 
   const updateVisibleCards = useCallback(() => {
     const width = window.innerWidth;
@@ -55,7 +65,7 @@ function Feedback() {
             >
               <div className="max-w-[80%] mx-auto">
                 <FeedbackCard
-                  name={feedback.name}
+                  name={feedback.user}
                   feedback={feedback.feedback}
                 />
               </div>
