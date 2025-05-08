@@ -2,17 +2,17 @@ import React, { useState, useEffect } from "react";
 import {
   Input,
   Textarea,
-  Slider,
+  // Slider,
   Button,
   Spinner,
   Form,
-  addToast,
 } from "@heroui/react";
 
 const SubmitFeedback = () => {
   // const [rating, setRating] = React.useState(null);
   const [submittedData, setSubmittedData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (!submittedData) return;
@@ -33,38 +33,20 @@ const SubmitFeedback = () => {
         body: JSON.stringify(jsonData),
       });
 
-      const parsedData = await data.json();
-
       if (data.status !== 200) {
-        addToast({
-          title: "Failed to submit. Please try again.",
-          color: "danger",
-          className: "dark",
-          classNames: {
-            title: "font-varela text-left",
-          },
-          radius: "lg",
-          onClose: () => {
-            window.location.reload();
-          },
-        });
-        setSubmittedData(null);
+        setError(true);
+        setIsLoading(false);
+        setTimeout(() => {
+          setError(null);
+        }, 6000);
       } else {
-        addToast({
-          title: "Thank you for submitting your feedback!",
-          className: "dark",
-          classNames: {
-            title: "font-varela text-left",
-          },
-          radius: "lg",
-          color: "success",
-          timeout: 60000,
-          onClose: () => {
-            window.location.reload();
-          },
-        });
+        setError(false);
+        setIsLoading(false);
+        document.querySelector("form").reset();
+        setTimeout(() => {
+          setError(null);
+        }, 6000);
       }
-      setIsLoading(false);
     };
 
     sendRequest();
@@ -174,8 +156,18 @@ const SubmitFeedback = () => {
               Reset
             </Button>
           </div>
+          {error == true && (
+            <h1 className="text-red-500 w-full text-center -mt-2">
+              ❌ Failed to submit feedback. Please try again.
+            </h1>
+          )}
+          {error == false && (
+            <h1 className="text-green-500 w-full text-center -mt-2">
+              ✅ Thank you for submitting your feedback!
+            </h1>
+          )}
         </Form>
-      </div>
+      </div>  
     </div>
   );
 };
