@@ -26,7 +26,6 @@ import AddEvent from "./components/mainComponents/AddEvent.jsx";
 import EventRegistration from "./components/subComponents/EventRegistration.jsx";
 import EventDetails from "./components/subComponents/EventDetails.jsx";
 import SubmissionSuccess from "./components/subComponents/SubmissionSuccess.jsx";
-import AddMember from "./components/mainComponents/AddMember.jsx";
 import SubmitFeedback from "./components/mainComponents/SubmitFeedback.jsx";
 
 // import PrivateRoute from "./components/subComponents/PrivateRoute.jsx";
@@ -56,8 +55,15 @@ const route = createBrowserRouter(
       <Route path="projects" element={<Project />}></Route>
       <Route path="gallery" element={<Gallery />}></Route>
       <Route path="addevent" element={<AddEvent />}></Route>
-      <Route path="addmember" element={<AddMember />}></Route>
       <Route path="submitfeedback" element={<SubmitFeedback />}></Route>
+      <Route
+        path="*"
+        element={
+          <div className="text-5xl font-bold text-textColor1 h-screen w-full justify-center items-center flex">
+            Not Found
+          </div>
+        }
+      />
     </Route>
   )
 );
