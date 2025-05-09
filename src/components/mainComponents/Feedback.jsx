@@ -12,7 +12,8 @@ function Feedback() {
     const fetchFeedbacks = async () => {
       const response = await fetch(import.meta.env.VITE_GET_FEEDBACK_URI);
       const data = await response.json();
-      setFeedbacks(data.feedback);
+      const shuffledFeedbacks = data.feedback.sort(() => Math.random() - 0.5);
+      setFeedbacks(shuffledFeedbacks);
     };
     fetchFeedbacks();
   }, []);
