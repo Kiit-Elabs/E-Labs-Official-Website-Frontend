@@ -46,9 +46,16 @@ function Feedback() {
 
   return (
     <div className="flex flex-col items-center justify-around dark:bg-[radial-gradient(circle_at_center,#fff_1%,#ffedde_20%,#ffd4b3_50%)] py-20 p-4 xl:px-8 w-full">
-      <h1 className="sm:text-5xl text-4xl text-balance font-black text-textColor1 mb-8 text-center">
+      <h1 className="md:text-5xl text-4xl text-balance font-black text-textColor1 mb-8 text-center">
         Feedback from our Students
       </h1>
+      <div
+        className="w-[90%] h-[4px] bg-gradient-to-b from-[#F7941D] to-[#915711]"
+        style={{
+          background:
+            "linear-gradient(180deg, #F7941D -348.21%, #915711 0.22%)",
+        }}
+      ></div>
 
       <div className="flex w-full mx-20 overflow-hidden my-10">
         <div
