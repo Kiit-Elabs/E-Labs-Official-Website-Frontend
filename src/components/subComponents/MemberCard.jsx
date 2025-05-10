@@ -1,33 +1,41 @@
-import React from 'react'
-import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa'
+import { Image } from "@heroui/react";
+import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 function MemberCard({
-  imgSource = 'https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg',
-  name = 'Name',
-  position = 'Position',
-  domain = '',
-  github = '',
-  linkedin = '',
-  instagram = '',
+  imgSource = "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
+  name = "Name",
+  position = "Position",
+  domain = "",
+  github = "",
+  linkedin = "",
+  instagram = "",
+  membersPage = false,
 }) {
   return (
     <div className="flex flex-wrap-reverse justify-center items-center group h-full">
       <div
-        className={`w-[80%] flex flex-col justify-center items-center border-2 border-textColor1 rounded-xl backdrop-blur-lg h-full`}
+        className={`w-[240px] flex flex-col justify-center items-center border-2 border-textColor1 rounded-xl backdrop-blur-lg h-full`}
       >
         <div className="h-1/2 justify-center items-center p-5">
-          <figure className="rounded-xl overflow-hidden group-hover:scale-105 aspect-square object-cover group-hover:shadow-md group-hover:shadow-textColor1 transition-all duration-200 ease-in-out">
-            <img
-              src={imgSource}
-              width={225}
-              height={225}
-              alt={`${name}'s image`}
-            />
-          </figure>
+          <Image
+            className="overflow-hidden group-hover:scale-105 group-hover:shadow-md group-hover:shadow-textColor1 transition-all duration-200 ease-in-out"
+            src={imgSource.replace(
+              /ar_1:1,c_(fill|auto),g_auto/g,
+              "w_1024,ar_1:1,c_auto,g_auto,f_auto"
+            )}
+            alt={`${name}'s image`} 
+            radius="lg"
+            isBlurred
+          >
+          </Image>
         </div>
-        <div className="flex flex-col justify-start items-center h-[170px] mx-3 gap-3 mb-4">
-          <div className="h-1/3 flex">
-            <h1 className="text-xl font-extrabold text-textColor1">
+        <div
+          className={`flex flex-col justify-center items-center ${
+            !membersPage ? "h-[170px]" : "h-[130px]"
+          } mx-3 gap-3 mb-4`}
+        >
+          <div className="h-1/3 flex items-center justify-start">
+            <h1 className="text-xl font-extrabold text-textColor1 h-full">
               {name.toUpperCase()}
             </h1>
           </div>
@@ -35,9 +43,11 @@ function MemberCard({
             <p className="text-lg text-textColor2 font-medium">
               {position.toUpperCase()}
             </p>
-            <p className="text-base text-textColor1 font-black">
-              {domain.toUpperCase()}
-            </p>
+            {!membersPage && (
+              <p className="text-base text-textColor1 font-black">
+                {domain.toUpperCase()}
+              </p>
+            )}
           </div>
           <div className="h-1/3 flex flex-row items-end justify-center gap-5  ">
             {github && (
@@ -71,7 +81,7 @@ function MemberCard({
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default MemberCard
+export default MemberCard;

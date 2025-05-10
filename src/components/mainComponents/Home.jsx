@@ -1,13 +1,10 @@
-import React from 'react'
-import Navbar from './Navbar'
-import About from './About'
-import FirstPage from './FirstPage'
-import Events from './Events'
-import Member from './Member'
-import Feedback from './Feedback'
-import Gallery from './Gallery'
-import Members from './Members'
-import Domain from './Domain'
+import About from "./About";
+import FirstPage from "./FirstPage";
+import Events from "./Events";
+import Member from "./Member";
+import Feedback from "./Feedback";
+import Gallery from "./Gallery";
+import Domain from "./Domain";
 
 function Home() {
   return (
@@ -35,7 +32,7 @@ function Home() {
       </section>
       <br />
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

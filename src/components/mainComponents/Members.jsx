@@ -1,70 +1,114 @@
-import { useState, useEffect, useCallback } from 'react'
-import MemberCard from '../subComponents/MemberCard'
-import { useNavigate } from 'react-router-dom'
+import "../../styles/Slider.css";
+
+import { useState, useEffect, useCallback } from "react";
+import MemberCard from "../subComponents/MemberCard";
+import { useNavigate } from "react-router-dom";
+import Slider from "react-slick";
+import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
+import { Button } from "@heroui/react";
+
+// const CustomNextArrow = ({ className, onClick, style }) => {
+//   return (
+//     <div className={className} onClick={onClick}>
+//       <FaArrowCircleRight className="text-2xl text-textColor1/80 hover:text-textColor1 hover:scale-105 duration-200 ease-in-out transition-all" />
+//     </div>
+//   );
+// };
+
+// const CustomPrevArrow = ({ className, onClick, style }) => {
+//   return (
+//     <div className={className} onClick={onClick}>
+//       <FaArrowCircleLeft className="text-2xl text-textColor1/80 hover:text-textColor1 hover:scale-105 duration-200 ease-in-out transition-all" />
+//     </div>
+//   );
+// };
+
+const domainList = [
+  { label: "Web Development", value: "web_dev" },
+  { label: "Android Development", value: "android" },
+  { label: "UI/UX", value: "ui_ux" },
+  { label: "Graphic Designing", value: "graphic" },
+  { label: "AI/ML", value: "ml" },
+  { label: "AR/VR & Game Development", value: "arvr_game" },
+  { label: "Java", value: "java" },
+  { label: "IoT & Embedded", value: "iot" },
+  { label: "Cloud Computing", value: "cloud" },
+  { label: "Marketing & PR", value: "marketing" },
+  { label: "Content Writing", value: "content" },
+  { label: "Photography & Video Editing", value: "photography" },
+  { label: "Cyber Security", value: "cyber_sec" },
+  { label: "Data Analytics", value: "data_anal" },
+];
 
 function Members({ isHomePage = false }) {
-  const navigate = useNavigate()
-  const [selectedDomain, setSelectedDomain] = useState('')
-  const [allMembers, setAllMembers] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
-  const [visibleCards, setVisibleCards] = useState(4)
+  const navigate = useNavigate();
+  const [selectedDomain, setSelectedDomain] = useState("");
+  const [allMembers, setAllMembers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [visibleCards, setVisibleCards] = useState(4);
 
   useEffect(() => {
     const fetchMembers = async () => {
       try {
-        const response = await fetch('http://localhost:8000/member/get-members')
+        const response = await fetch(import.meta.env.VITE_GET_MEMBER_URI);
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`)
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const data = await response.json()
+        const data = await response.json();
 
         if (!data?.members || !Array.isArray(data.members)) {
-          throw new Error('Invalid data format received from API')
+          throw new Error("Invalid data format received from API");
         }
 
         const sortedMembers = data.members.sort(
           (a, b) => b.priority - a.priority
-        )
-        setAllMembers(sortedMembers)
+        );
+        setAllMembers(sortedMembers);
       } catch (err) {
-        console.error('Error fetching members:', err)
-        setError(err.message)
+        console.error("Error fetching members:", err);
+        setError(err.message);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
+    };
 
-    fetchMembers()
-  }, [])
+    fetchMembers();
+  }, []);
 
   const updateVisibleCards = useCallback(() => {
-    const width = window.innerWidth
-    if (width < 640) setVisibleCards(1)
-    else if (width < 768) setVisibleCards(2)
-    else if (width < 1024) setVisibleCards(3)
-    else setVisibleCards(4)
-  }, [])
+    const width = window.innerWidth;
+    if (width < 640) setVisibleCards(1);
+    else if (width < 768) setVisibleCards(2);
+    else if (width < 1024) setVisibleCards(3);
+    else setVisibleCards(4);
+  }, []);
 
   useEffect(() => {
-    updateVisibleCards()
-    window.addEventListener('resize', updateVisibleCards)
-    return () => window.removeEventListener('resize', updateVisibleCards)
-  }, [updateVisibleCards])
+    updateVisibleCards();
+    window.addEventListener("resize", updateVisibleCards);
+    return () => window.removeEventListener("resize", updateVisibleCards);
+  }, [updateVisibleCards]);
 
-  const coordinators = allMembers.filter((member) =>
-    member?.designation?.toLowerCase()?.includes('coordinator')
-  )
+  const coordinators = allMembers.filter(
+    (member) =>
+      member?.designation?.toLowerCase()?.includes("coordinator") ||
+      member?.designation?.toLowerCase()?.includes("assistant coordinator")
+  );
 
-  const leadsAndAssistantLeads = allMembers.filter((member) =>
-    member?.designation?.toLowerCase()?.includes('lead')
-  )
+  const leadsAndAssistantLeads = allMembers.filter(
+    (member) =>
+      member?.designation?.toLowerCase()?.includes("lead") ||
+      member?.designation?.toLowerCase()?.includes("assistant lead")
+  );
 
   const regularMembers = allMembers.filter(
     (member) =>
-      !member?.designation?.toLowerCase()?.includes('coordinator') &&
-      !member?.designation?.toLowerCase()?.includes('lead')
-  )
+      !member?.designation?.toLowerCase()?.includes("coordinator") &&
+      !member?.designation?.toLowerCase()?.includes("assistant coordinator") &&
+      !member?.designation?.toLowerCase()?.includes("lead") &&
+      !member?.designation?.toLowerCase()?.includes("assistant lead")
+  );
 
   const domains = [
     ...new Set(
@@ -72,57 +116,102 @@ function Members({ isHomePage = false }) {
         Array.isArray(member?.domain) ? member.domain : []
       )
     ),
-  ].filter(Boolean)
+  ].filter(Boolean);
 
   useEffect(() => {
-    if (domains.length > 0 && selectedDomain === '') {
-      setSelectedDomain(domains[0])
+    if (domains.length > 0 && selectedDomain === "") {
+      setSelectedDomain(domains[0]);
     }
-  }, [domains, selectedDomain])
+  }, [domains, selectedDomain]);
 
   const filteredMembers = selectedDomain
-    ? regularMembers.filter(
-        (member) =>
-          Array.isArray(member?.domain) &&
-          member.domain.includes(selectedDomain)
-      )
-    : regularMembers
+    ? regularMembers
+        .concat(leadsAndAssistantLeads)
+        .filter(
+          (member) =>
+            Array.isArray(member?.domain) &&
+            member.domain.includes(selectedDomain)
+        )
+        .sort((a, b) => b.priority - a.priority)
+    : regularMembers;
 
-  const handleViewMore = () => navigate('/members')
+  const handleViewMore = () => navigate("/members");
 
   if (loading)
     return (
       <div className="flex items-center justify-center py-16">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-textColor1"></div>
       </div>
-    )
+    );
 
   if (error)
     return (
       <div className="text-center py-12 bg-red-50 rounded-lg max-w-2xl mx-auto">
         <div className="text-red-500 font-medium">Error: {error}</div>
       </div>
-    )
+    );
 
   if (isHomePage) {
-    const leadershipMembers = [...coordinators, ...leadsAndAssistantLeads]
-    const displayMembers = leadershipMembers.slice(0, visibleCards)
+    const leadershipMembers = [...coordinators, ...leadsAndAssistantLeads].sort(
+      (a, b) => b.priority - a.priority
+    );
+    // const displayMembers = leadershipMembers.slice(0, visibleCards);
+
+    let settings = {
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplay: true,
+      swipeToSlide: true,
+      autoplaySpeed: 1500,
+      arrows: false,
+      // nextArrow: <CustomNextArrow />,
+      // prevArrow: <CustomPrevArrow />,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true,
+          },
+        },
+        {
+          breakpoint: 900,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2,
+          },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+      ],
+    };
 
     return (
-      <div className="w-full flex flex-col items-center justify-center text-center py-16 px-4 dark:bg-[radial-gradient(circle_at_center,#fff_1%,#ffedde_20%,#ffd4b3_50%)]">
-        <h1 className="text-4xl md:text-5xl font-black mb-8 text-textColor1 tracking-tight">
-          MEET OUR TEAM
+      <div className="w-full flex flex-col items-center justify-center text-center mt-24 dark:bg-[radial-gradient(circle_at_center,#fff_1%,#ffedde_20%,#ffd4b3_50%)] mb-32 px-3 h-full">
+        <h1 className="sm:text-5xl text-4xl font-black mb-14 text-textColor1 mx-3 text-balance">
+          Meet With Our Team
         </h1>
 
-        <div className="w-full max-w-7xl">
+        {/* <div className="w-full max-w-7xl">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
-            {displayMembers.map((member) => (
+            {leadershipMembers.map((member) => (
               <div
                 key={member?._id}
                 className="w-full"
                 style={{
-                  minWidth: '300px',
-                  maxWidth: '350px',
+                  minWidth: "300px",
+                  maxWidth: "350px",
                 }}
               >
                 <div className="relative h-full w-full group">
@@ -132,8 +221,8 @@ function Members({ isHomePage = false }) {
                     position={member?.designation}
                     domain={
                       Array.isArray(member?.domain)
-                        ? member.domain.join(', ')
-                        : ''
+                        ? member.domain.join(", ")
+                        : ""
                     }
                     github={member?.github}
                     linkedin={member?.linkedin}
@@ -145,26 +234,57 @@ function Members({ isHomePage = false }) {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
-        <button
-          onClick={handleViewMore}
-          className="bg-textColor1 text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-opacity-90 transition-all mt-12 shadow-lg hover:shadow-xl hover:-translate-y-1"
+        <Slider
+          {...settings}
+          className="flex flex-row justify-center items-center text-center w-[80%] gap-16 h-full"
         >
-          VIEW MORE
-        </button>
+          {leadershipMembers.map((el) => (
+            <div
+              className="w-full flex items-center justify-center h-full"
+              key={el._id}
+            >
+              <MemberCard
+                name={el.name}
+                imgSource={el.image}
+                position={el.designation}
+                domain={
+                  domainList.find((domain) => domain.value === el.domain[0])
+                    ?.label
+                }
+                github={el.github}
+                linkedin={el.linkedin}
+                instagram={el.instagram}
+              />
+            </div>
+          ))}
+        </Slider>
+
+        <a href="/members">
+          <Button
+            className="w-[200px] max-w-[250px] hover:scale-105 transition-all ease-in-out duration-200 font-bold text-xl mt-12"
+            type="submit"
+            variant="shadow"
+            color="warning"
+            radius="lg"
+            size="lg"
+          >
+            View More
+          </Button>
+        </a>
       </div>
-    )
+    );
   }
 
   return (
     <div className="w-full flex flex-col items-center justify-center text-center py-12 px-4 dark:bg-[radial-gradient(circle_at_center,#fff_1%,#ffedde_20%,#ffd4b3_50%)]">
-      <h1 className="text-4xl md:text-5xl font-black mb-8 text-textColor1 tracking-tight">
+      <h1 className="text-4xl md:text-5xl font-black mb-8 text-textColor1 tracking-wide">
         OUR TEAM MEMBERS
       </h1>
 
       {domains.length > 0 && (
-        <div className="mb-12 w-full max-w-md mx-auto">
+        <div className="mb-14 mt-6 w-full max-w-md mx-auto">
           <select
             value={selectedDomain}
             onChange={(e) => setSelectedDomain(e.target.value)}
@@ -181,7 +301,7 @@ function Members({ isHomePage = false }) {
 
       <div className="w-full max-w-7xl">
         {filteredMembers.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center">
+          <div className="flex flex-wrap justify-evenly items-center gap-8 mx-10">
             {filteredMembers.map((member) => (
               <MemberCard
                 key={member?._id}
@@ -191,7 +311,8 @@ function Members({ isHomePage = false }) {
                 github={member?.github}
                 linkedin={member?.linkedin}
                 instagram={member?.instagram}
-                className="transform hover:scale-105 hover:rotate-1 transition-all duration-300 shadow-lg hover:shadow-xl rounded-lg overflow-hidden w-[85%] mx-auto"
+                membersPage={true}
+                // className="transform hover:scale-105 hover:rotate-1 transition-all duration-300 shadow-lg hover:shadow-xl rounded-lg overflow-hidden w-[85%] mx-auto"
               />
             ))}
           </div>
@@ -202,7 +323,7 @@ function Members({ isHomePage = false }) {
         )}
       </div>
     </div>
-  )
+  );
 }
 
-export default Members
+export default Members;
