@@ -1,14 +1,14 @@
-import React from "react";
-import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import React from 'react'
+import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa'
 
 function MemberCard({
-  imgSource = "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
-  name = "Name",
-  position = "Position",
-  domain = "Domain",
-  github = "",
-  linkedin = "",
-  instagram = "",
+  imgSource = 'https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg',
+  name = 'Name',
+  position = 'Position',
+  domain = '',
+  github = '',
+  linkedin = '',
+  instagram = '',
 }) {
   return (
     <div className="flex flex-wrap-reverse justify-center items-center group h-full">
@@ -71,7 +71,7 @@ function MemberCard({
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default MemberCard;
+export default MemberCard
