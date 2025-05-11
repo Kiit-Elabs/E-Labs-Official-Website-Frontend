@@ -4,8 +4,8 @@ import { useState, useEffect, useCallback } from "react";
 import MemberCard from "../subComponents/MemberCard";
 import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
-import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
-import { Button } from "@heroui/react";
+// import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
+import { Button, Select, SelectItem } from "@heroui/react";
 
 // const CustomNextArrow = ({ className, onClick, style }) => {
 //   return (
@@ -120,7 +120,7 @@ function Members({ isHomePage = false }) {
 
   useEffect(() => {
     if (domains.length > 0 && selectedDomain === "") {
-      setSelectedDomain(domains[0]);
+      setSelectedDomain("web_dev");
     }
   }, [domains, selectedDomain]);
 
@@ -279,29 +279,57 @@ function Members({ isHomePage = false }) {
 
   return (
     <div className="w-full flex flex-col items-center justify-center text-center py-12 px-4 dark:bg-[radial-gradient(circle_at_center,#fff_1%,#ffedde_20%,#ffd4b3_50%)]">
-      <h1 className="text-4xl md:text-5xl font-black mb-8 text-textColor1 tracking-wide">
+      <h1 className="text-4xl md:text-5xl font-black mb-6 text-textColor1 tracking-wide mt-4">
         OUR TEAM MEMBERS
       </h1>
 
       {domains.length > 0 && (
-        <div className="mb-14 mt-6 w-full max-w-md mx-auto">
-          <select
-            value={selectedDomain}
-            onChange={(e) => setSelectedDomain(e.target.value)}
-            className="w-full p-3 border-2 border-textColor1 rounded-lg bg-white text-textColor1 font-bold focus:outline-none focus:ring-2 focus:ring-textColor1 focus:ring-opacity-50 transition-all shadow-md"
+        <div className="mb-14 mt-6 w-full max-w-md px-6">
+          <Select
+            variant="faded"
+            color="warning"
+            size="lg"
+            defaultSelectedKeys={["web_dev"]}
+            classNames={{
+              popoverContent: "dark",
+            }}
+            className="dark"
+            onSelectionChange={(keys) => {
+              if (keys instanceof Set && keys.size > 0) {
+                setSelectedDomain(Array.from(keys)[0]);
+              } else {
+                setSelectedDomain(selectedDomain);
+              }
+            }}
+            scrollShadowProps={{
+              hideScrollBar: false,
+            }}
           >
-            {domains.map((domain) => (
-              <option key={domain} value={domain}>
-                {domain?.toUpperCase()}
-              </option>
-            ))}
-          </select>
+            {domains
+              .sort((a, b) =>
+                domainList
+                  .find((domain) => domain.value === a)
+                  ?.label.localeCompare(
+                    domainList.find((domain) => domain.value === b)?.label
+                  )
+              )
+              .map((domain) => (
+                <SelectItem
+                  key={domain}
+                  variant="flat"
+                  color="warning"
+                  classNames={{ title: "font-verna" }}
+                >
+                  {domainList.find((d) => d.value === domain)?.label}
+                </SelectItem>
+              ))}
+          </Select>
         </div>
       )}
 
-      <div className="w-full max-w-7xl">
+      <div className="w-full max-w-7xl mb-16">
         {filteredMembers.length > 0 ? (
-          <div className="flex flex-wrap justify-evenly items-center gap-8 mx-10">
+          <div className="flex flex-wrap justify-center items-center gap-12 mx-10">
             {filteredMembers.map((member) => (
               <MemberCard
                 key={member?._id}
