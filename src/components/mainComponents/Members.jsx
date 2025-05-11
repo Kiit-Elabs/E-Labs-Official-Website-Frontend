@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 // import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 import { Button, Select, SelectItem } from "@heroui/react";
-import { CssSyntaxError } from "postcss";
 
 // const CustomNextArrow = ({ className, onClick, style }) => {
 //   return (
@@ -25,6 +24,7 @@ import { CssSyntaxError } from "postcss";
 // };
 
 const domainList = [
+  { label: "Coordinators", value: "coordinator" },
   { label: "Web Development", value: "web_dev" },
   { label: "Android Development", value: "android" },
   { label: "UI/UX", value: "ui_ux" },
@@ -121,20 +121,22 @@ function Members({ isHomePage = false }) {
 
   useEffect(() => {
     if (domains.length > 0 && selectedDomain === "") {
-      setSelectedDomain("web_dev");
+      setSelectedDomain("coordinator");
     }
   }, [domains, selectedDomain]);
 
-  const filteredMembers = selectedDomain
+  const filteredMembers = !selectedDomain
     ? regularMembers
+    : selectedDomain === "coordinator"
+    ? coordinators
+    : regularMembers
         .concat(leadsAndAssistantLeads)
         .filter(
           (member) =>
             Array.isArray(member?.domain) &&
             member.domain.includes(selectedDomain)
         )
-        .sort((a, b) => b.priority - a.priority)
-    : regularMembers;
+        .sort((a, b) => b.priority - a.priority);
 
   const handleViewMore = () => navigate("/members");
 
@@ -287,7 +289,7 @@ function Members({ isHomePage = false }) {
             variant="faded"
             color="warning"
             size="lg"
-            defaultSelectedKeys={["web_dev"]}
+            defaultSelectedKeys={["coordinator"]}
             classNames={{
               popoverContent: "dark",
             }}
@@ -303,13 +305,15 @@ function Members({ isHomePage = false }) {
               hideScrollBar: false,
             }}
           >
-            {domains
-              .sort((a, b) =>
-                domainList
-                  .find((domain) => domain.value === a)
-                  ?.label.localeCompare(
-                    domainList.find((domain) => domain.value === b)?.label
-                  )
+            {["coordinator"]
+              .concat(
+                domains.sort((a, b) =>
+                  domainList
+                    .find((domain) => domain.value === a)
+                    ?.label.localeCompare(
+                      domainList.find((domain) => domain.value === b)?.label
+                    )
+                )
               )
               .map((domain) => (
                 <SelectItem
