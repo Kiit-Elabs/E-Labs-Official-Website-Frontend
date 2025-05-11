@@ -165,8 +165,8 @@ function Members({ isHomePage = false }) {
       slidesToShow: 4,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 2000,
-      speed: 2000,
+      autoplaySpeed: 2500,
+      speed: 2500,
       cssEase: "linear",
       // nextArrow: <CustomNextArrow />,
       // prevArrow: <CustomPrevArrow />,
@@ -245,8 +245,11 @@ function Members({ isHomePage = false }) {
                 imgSource={el.image}
                 position={el.designation}
                 domain={
-                  domainList.find((domain) => domain.value === el.domain[0])
-                    ?.label
+                  el.designation != "Coordinator" &&
+                  el.designation != "Assistant Coordinator"
+                    ? domainList.find((domain) => domain.value === el.domain[0])
+                        ?.label
+                    : ""
                 }
                 github={el.github}
                 linkedin={el.linkedin}
