@@ -40,7 +40,7 @@ function Feedback() {
   useEffect(() => {
     const slideInterval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % feedbacks.length);
-    }, 3000);
+    }, 2000);
 
     return () => clearInterval(slideInterval);
   }, [feedbacks.length]);

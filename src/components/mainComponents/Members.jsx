@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 // import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 import { Button, Select, SelectItem } from "@heroui/react";
+import { CssSyntaxError } from "postcss";
 
 // const CustomNextArrow = ({ className, onClick, style }) => {
 //   return (
@@ -159,14 +160,14 @@ function Members({ isHomePage = false }) {
 
     let settings = {
       dots: false,
+      arrows: false,
       infinite: true,
-      speed: 500,
-      slidesToShow: 3,
+      slidesToShow: 4,
       slidesToScroll: 1,
       autoplay: true,
-      swipeToSlide: true,
-      autoplaySpeed: 1500,
-      arrows: false,
+      autoplaySpeed: 2000,
+      speed: 2000,
+      cssEase: "linear",
       // nextArrow: <CustomNextArrow />,
       // prevArrow: <CustomPrevArrow />,
       responsive: [
@@ -174,31 +175,25 @@ function Members({ isHomePage = false }) {
           breakpoint: 1024,
           settings: {
             slidesToShow: 3,
-            slidesToScroll: 3,
-            infinite: true,
-            dots: true,
           },
         },
         {
           breakpoint: 900,
           settings: {
             slidesToShow: 2,
-            slidesToScroll: 2,
-            initialSlide: 2,
           },
         },
         {
           breakpoint: 480,
           settings: {
             slidesToShow: 1,
-            slidesToScroll: 1,
           },
         },
       ],
     };
 
     return (
-      <div className="w-full flex flex-col items-center justify-center text-center mt-24 dark:bg-[radial-gradient(circle_at_center,#fff_1%,#ffedde_20%,#ffd4b3_50%)] mb-32 px-3 h-full">
+      <div className="w-full flex flex-col items-center justify-center text-center mt-24 dark:bg-[radial-gradient(circle_at_center,#fff_1%,#ffedde_20%,#ffd4b3_50%)] mb-32 h-full">
         <h1 className="sm:text-5xl text-4xl font-black mb-14 text-textColor1 mx-3 text-balance">
           Meet With Our Team
         </h1>
@@ -238,7 +233,7 @@ function Members({ isHomePage = false }) {
 
         <Slider
           {...settings}
-          className="flex flex-row justify-center items-center text-center w-[80%] gap-16 h-full"
+          className="flex flex-row justify-center items-center text-center w-[90%] gap-16 h-full cursor-grabbing"
         >
           {leadershipMembers.map((el) => (
             <div
