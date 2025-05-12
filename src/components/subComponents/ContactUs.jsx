@@ -30,7 +30,7 @@ function ContactUs() {
             href="tel:0674 2725113"
             className="hover:text-textColor1 focus:text-textColor1 duration-200 text-textColor2 dark:text-black"
           >
-            0674 2725113
+            +91 7063887497
           </a>
         </div>
         <div className=" duration-200 flex gap-2 justify-center sm:justify-start items-center">
