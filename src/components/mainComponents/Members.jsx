@@ -263,7 +263,7 @@ function Members({ isHomePage = false }) {
 
         <a href="/members">
           <Button
-            className="w-[300px] hover:scale-105 transition-all ease-in-out duration-200 font-bold text-xl mt-12"
+            className="w-[250px] hover:scale-105 transition-all ease-in-out duration-200 font-bold text-xl mt-12"
             type="submit"
             variant="shadow"
             color="warning"

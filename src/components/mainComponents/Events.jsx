@@ -5,6 +5,8 @@ import EventDetails from "../subComponents/EventDetails";
 import { useSelector } from "react-redux";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 import "../../styles/Slider.css";
+import { useEffect, useState } from "react";
+import { Image } from "@heroui/react";
 
 const CustomNextArrow = ({ className, onClick }) => (
   <div
@@ -33,19 +35,43 @@ const CustomPrevArrow = ({ className, onClick }) => (
 );
 
 function Events() {
+  const [events, setEvents] = useState([]);
+
   let settings = {
-    dots: false,
+    dots: true,
+    dotsClass: "slick-dots slick-thumb",
+    customPaging: (i) => {
+      return (
+        <a>
+          <Image
+            src={events[i].image}
+            alt={`Event ${i}`}
+            isBlurred
+            className="rounded-md shadow-sm shadow-textColor1"
+          />
+        </a>
+      );
+    },
     infinite: true,
-    speed: 500,
+    speed: 2000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
+    autoplaySpeed: 3000,
     swipeToSlide: true,
     nextArrow: <CustomNextArrow />,
     prevArrow: <CustomPrevArrow />,
   };
 
-  let events = useSelector((state) => state.eventDetails);
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const response = await fetch(import.meta.env.VITE_GET_EVENT_URI);
+      const data = await response.json();
+      console.log(data.events);
+      setEvents(data.events);
+    };
+    fetchEvents();
+  }, []);
 
   return (
     <div className="relative w-full max-w-6xl px-4 pt-32 mx-auto">
@@ -56,7 +82,7 @@ function Events() {
         {events.map((el, index) => (
           <div
             key={index}
-            className="w-full flex flex-col md:flex-row items-center justify-evenly px-10"
+            className="w-full flex flex-col md:flex-row items-center justify-evenly px-4 lg:px-10"
           >
             <EventDetails eventInfo={el} />
           </div>
