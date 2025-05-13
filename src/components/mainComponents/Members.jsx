@@ -2,7 +2,7 @@ import "../../styles/Slider.css";
 
 import { useState, useEffect, useCallback } from "react";
 import MemberCard from "../subComponents/MemberCard";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Slider from "react-slick";
 // import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 import { Button, Select, SelectItem } from "@heroui/react";
@@ -195,7 +195,7 @@ function Members({ isHomePage = false }) {
     };
 
     return (
-      <div className="w-full flex flex-col items-center justify-center text-center mt-24 dark:bg-[radial-gradient(circle_at_center,#fff_1%,#ffedde_20%,#ffd4b3_50%)] mb-32 h-full">
+      <div className="w-full flex flex-col items-center justify-center text-center mt-36 dark:bg-[radial-gradient(circle_at_center,#fff_1%,#ffedde_20%,#ffd4b3_50%)] mb-36 h-full">
         <h1 className="sm:text-5xl text-4xl font-black mb-14 text-textColor1 mx-3 text-balance">
           Meet With Our Team
         </h1>
@@ -261,7 +261,7 @@ function Members({ isHomePage = false }) {
           ))}
         </Slider>
 
-        <a href="/members">
+        <Link to="/members">
           <Button
             className="w-[250px] hover:scale-105 transition-all ease-in-out duration-200 font-bold text-xl mt-12"
             type="submit"
@@ -272,7 +272,7 @@ function Members({ isHomePage = false }) {
           >
             View More
           </Button>
-        </a>
+        </Link>
       </div>
     );
   }

@@ -2,10 +2,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import EventDetails from "../subComponents/EventDetails";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 import "../../styles/Slider.css";
-import { useEffect, useState } from "react";
 import { Image } from "@heroui/react";
 
 const CustomNextArrow = ({ className, onClick }) => (
@@ -17,7 +16,7 @@ const CustomNextArrow = ({ className, onClick }) => (
       justify-center items-center z-10 cursor-pointer"
     onClick={onClick}
   >
-    <FiArrowRightCircle className="text-3xl text-textColor1 transition-all duration-250 ease-in-out hover:scale-105" />
+    <FiArrowRightCircle className="text-3xl text-textColor1 transition-all duration-250 ease-in-out hover:scale-110" />
   </div>
 );
 
@@ -30,13 +29,11 @@ const CustomPrevArrow = ({ className, onClick }) => (
       justify-center items-center z-10 cursor-pointer"
     onClick={onClick}
   >
-    <FiArrowLeftCircle className="text-3xl font-bold text-textColor1 transition-all duration-250 ease-in-out hover:scale-105" />
+    <FiArrowLeftCircle className="text-3xl font-bold text-textColor1 transition-all duration-250 ease-in-out hover:scale-110" />
   </div>
 );
 
-function Events() {
-  const [events, setEvents] = useState([]);
-
+function Events({ events }) {
   let settings = {
     dots: true,
     dotsClass: "slick-dots slick-thumb",
@@ -63,19 +60,9 @@ function Events() {
     prevArrow: <CustomPrevArrow />,
   };
 
-  useEffect(() => {
-    const fetchEvents = async () => {
-      const response = await fetch(import.meta.env.VITE_GET_EVENT_URI);
-      const data = await response.json();
-      console.log(data.events);
-      setEvents(data.events);
-    };
-    fetchEvents();
-  }, []);
-
   return (
     <div className="relative w-full max-w-6xl px-4 pt-32 mx-auto">
-      <h1 className="sm:text-5xl text-4xl font-black mb-8 text-textColor1 mx-3 text-balance text-center">
+      <h1 className="sm:text-5xl text-4xl font-black mb-8 text-textColor1 mx-5 text-balance text-center">
         Our Past and Upcoming Events
       </h1>
       <Slider {...settings}>
