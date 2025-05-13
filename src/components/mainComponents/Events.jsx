@@ -3,7 +3,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import EventDetails from "../subComponents/EventDetails";
 import { useSelector } from "react-redux";
-import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
+import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 import "../../styles/Slider.css";
 import { useEffect, useState } from "react";
 import { Image } from "@heroui/react";
@@ -17,7 +17,7 @@ const CustomNextArrow = ({ className, onClick }) => (
       justify-center items-center z-10 cursor-pointer"
     onClick={onClick}
   >
-    <FaArrowCircleRight className="text-2xl text-textColor1 transition-all duration-250 ease-in-out hover:scale-105" />
+    <FiArrowRightCircle className="text-3xl text-textColor1 transition-all duration-250 ease-in-out hover:scale-105" />
   </div>
 );
 
@@ -30,7 +30,7 @@ const CustomPrevArrow = ({ className, onClick }) => (
       justify-center items-center z-10 cursor-pointer"
     onClick={onClick}
   >
-    <FaArrowCircleLeft className="text-2xl text-textColor1 transition-all duration-250 ease-in-out hover:scale-105" />
+    <FiArrowLeftCircle className="text-3xl font-bold text-textColor1 transition-all duration-250 ease-in-out hover:scale-105" />
   </div>
 );
 
