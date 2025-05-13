@@ -65,6 +65,16 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [activeSection]);
 
+  useEffect(() => {
+    // Check localStorage for theme preference on mount
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      const isDark = savedTheme === "dark";
+      document.querySelector("html").classList.toggle("dark", isDark);
+      setDark(isDark);
+    }
+  }, []);
+
   const toggleMenu = () => {
     if (!isMenuOpen) {
       window.scrollTo(0, 0); // Scroll to the top when opening the menu
@@ -74,8 +84,10 @@ const Navbar = () => {
   const closeMenu = () => setIsMenuOpen(false);
 
   const toggleTheme = () => {
-    document.querySelector("html").classList.toggle("dark");
+    const newTheme = !dark ? "dark" : "light";
+    document.querySelector("html").classList.toggle("dark", !dark);
     setDark((prev) => !prev);
+    localStorage.setItem("theme", newTheme); // Save theme preference
   };
 
   // const handleSignOut = async () => {
@@ -125,7 +137,7 @@ const Navbar = () => {
           {renderNavLinks()}
         </div>
         <div className="flex items-center gap-2 right-4">
-          <ImageButton imageSource={dark ? day : night} func={toggleTheme} />
+          <ImageButton imageSource={day} func={toggleTheme} />
           <div className="md:hidden">
             <ImageButton
               imageSource={isMenuOpen ? close : menu}
