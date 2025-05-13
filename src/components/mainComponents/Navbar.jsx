@@ -14,8 +14,8 @@ import ImageButton from "../subComponents/ImageButton";
 const navLinks = [
   { href: "#", label: "Home", route: "/" },
   { href: "#aboutPage", label: "About", route: "/about" },
-  { href: "#domain", label: "Domains", route: "" },
-  // { href: "#eventPage", label: "Events", route: "/events" },
+  { href: "#domain", label: "Domains", route: "/domain" },
+  { href: "#eventPage", label: "Events", route: "/events" },
   { href: "#membersPage", label: "Members", route: "/members" },
   { href: "#galleryPage", label: "Gallery", route: "/gallery" },
   { href: "#feedbackPage", label: "Feedback", route: "/feedback" },

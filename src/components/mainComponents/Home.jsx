@@ -32,13 +32,13 @@ function Home() {
         <Domain />
       </section>
       <section id="eventPage">
-        <Events events={events} />
+        <Events />
       </section>
       <section id="membersPage">
         <Member />
       </section>
       <section id="galleryPage">
-        <Gallery events={events} />
+        <Gallery />
       </section>
       <section id="feedbackPage">
         <Feedback />

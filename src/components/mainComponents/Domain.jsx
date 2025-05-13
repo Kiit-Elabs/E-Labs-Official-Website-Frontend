@@ -18,7 +18,7 @@ function Domain() {
         }}
       ></div> */}
       
-      <div className="rounded-[32px] border-[3px] border-[#F7941D] mt-[4%] bg-[#0B1215] dark:bg-[#ffd4b3] w-[90%] h-full flex flex-col items-center justify-evenly">
+      <div className="rounded-[32px] border-[3px] border-[#F7941D] mt-[4%] bg-[#0B1215] dark:bg-[#ffd4b3] w-[90%] h-full flex flex-col items-center justify-evenly mb-20">
         <div className="flex gap-7 px-4 items-center flex-wrap w-full justify-center py-10">
           {stdmt.map((element) => (
             <a

@@ -6,6 +6,7 @@ import EventDetails from "../subComponents/EventDetails";
 import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 import "../../styles/Slider.css";
 import { Image } from "@heroui/react";
+import { useEffect, useState } from "react";
 
 const CustomNextArrow = ({ className, onClick }) => (
   <div
@@ -33,7 +34,18 @@ const CustomPrevArrow = ({ className, onClick }) => (
   </div>
 );
 
-function Events({ events }) {
+function Events() {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const response = await fetch(import.meta.env.VITE_GET_EVENT_URI);
+      const data = await response.json();
+      setEvents(data.events);
+    };
+    fetchEvents();
+  }, []);
+
   let settings = {
     dots: true,
     dotsClass: "slick-dots slick-thumb",
@@ -61,7 +73,7 @@ function Events({ events }) {
   };
 
   return (
-    <div className="relative w-full max-w-6xl px-4 pt-32 mx-auto">
+    <div className="relative w-full max-w-6xl px-4 mt-20 mx-auto mb-24">
       <h1 className="sm:text-5xl text-4xl font-black mb-8 text-textColor1 mx-5 text-balance text-center">
         Our Past and Upcoming Events
       </h1>

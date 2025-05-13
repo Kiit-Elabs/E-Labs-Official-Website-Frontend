@@ -1,8 +1,21 @@
 import EventSliderContainer from "../subComponents/EventSliderContainer";
 import PhotoGallery from "../subComponents/PhotoGallery";
-function Gallery({ events }) {
+import { useEffect, useState } from "react";
+
+function Gallery() {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const response = await fetch(import.meta.env.VITE_GET_EVENT_URI);
+      const data = await response.json();
+      setEvents(data.events);
+    };
+    fetchEvents();
+  }, []);
+
   return (
-    <div className="dark:bg-[radial-gradient(circle_at_center,#fff_1%,#ffedde_10%,#ffd4b3_40%)] px-3 justify-center">
+    <div className="dark:bg-[radial-gradient(circle_at_center,#fff_1%,#ffedde_10%,#ffd4b3_40%)] px-3 justify-center mb-24">
       {/* <h1 className="lg:text-5xl sm:text-5xl text-4xl text-center font-bold text-textColor1 my-8">
         Glimpses
       </h1>

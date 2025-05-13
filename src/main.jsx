@@ -27,6 +27,7 @@ import EventRegistration from "./components/subComponents/EventRegistration.jsx"
 import EventDetails from "./components/subComponents/EventDetails.jsx";
 import SubmissionSuccess from "./components/subComponents/SubmissionSuccess.jsx";
 import SubmitFeedback from "./components/mainComponents/SubmitFeedback.jsx";
+import Domain from "./components/mainComponents/Domain.jsx";
 
 // import PrivateRoute from "./components/subComponents/PrivateRoute.jsx";
 // import Profile from "./components/mainComponents/Profile.jsx";
@@ -39,6 +40,7 @@ const route = createBrowserRouter(
       <Route path="events" element={<Events />}></Route>
       <Route path="members" element={<Members />}></Route>
       <Route path="feedback" element={<Feedback />}></Route>
+      <Route path="domain" element={<Domain />}></Route>
       <Route path="courses" element={<StudyMt />}></Route>
       <Route path="courses/:sec" element={<Materials />}></Route>
       <Route path="courses/:sec/:pdf" element={<PdfView />}></Route>
