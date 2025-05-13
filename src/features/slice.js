@@ -300,7 +300,7 @@ const initialState = {
     },
 
     {
-      domain: "IoT & EMBEDDED",
+      domain: "IoT & EMBEDDED SYSTEMS",
       img: "/Images/Logo/IoT&Embedded.png",
       sec: "iot",
       resUrls: [
@@ -346,7 +346,7 @@ const initialState = {
     },
     {
       domain: "GAME DEVELOPMENT & AR/VR",
-      img: "/Images/Logo/GD.png",
+      img: "/Images/Logo/gamedev.png",
       sec: "iot",
       resUrls: [
         {

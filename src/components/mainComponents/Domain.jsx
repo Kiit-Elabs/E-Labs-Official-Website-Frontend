@@ -21,9 +21,9 @@ function Domain() {
       <div className="rounded-[32px] border-[3px] border-[#F7941D] mt-[4%] bg-[#0B1215] dark:bg-[#ffd4b3] w-[90%] h-full flex flex-col items-center justify-evenly mb-20">
         <div className="flex gap-7 px-4 items-center flex-wrap w-full justify-center py-10">
           {stdmt.map((element) => (
-            <a
+            <div
               // href={`/courses/${element.sec}`}
-              href={"#"}
+              // href={"#"}
               className="flex hover:scale-105 transition-all ease-in-out duration-300 w-full sm:w-[45%] md:w-[30%] max-w-[350px]"
               key={element.domain}
             >
@@ -47,7 +47,7 @@ function Domain() {
                   </p>
                 </div>
               </div>
-            </a>
+            </div>
           ))}
         </div>
         {/* <div
