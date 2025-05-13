@@ -18,7 +18,7 @@ function EventDetails({ eventInfo }) {
 
       <div className="w-full lg:w-3/5">
         <HPCard
-          userClass="text-3xl lg:text-3xl text-wrap text-center lg:text-left hover:scale-105 transition-transform duration-300 w-full mt-6 lg:mt-0"
+          userClass="text-3xl text-center lg:text-3xl text-wrap lg:text-left hover:scale-105 transition-all ease-in-out duration-300 w-full mt-6 lg:mt-0"
           heading={eventInfo.name || `Event ${eventInfo._id}`}
           description={eventInfo.description}
         />
