@@ -28,7 +28,7 @@ const Gallery = ({ events }) => {
               src={img.url.replace("/upload", "/upload/c_auto,g_auto,f_auto")}
               alt={img._id}
             />
-            <div className="absolute inset-0 group-hover:bg-gradient-to-tr group-hover:from-textColor1/40 group-hover:to-transparent items-end justify-start px-5 py-3 invisible group-hover:visible flex">
+            <div className="absolute inset-0 group-hover:bg-gradient-to-tr group-hover:from-textColor1/60 group-hover:to-transparent items-end justify-start px-5 py-3 invisible group-hover:visible flex">
               <div className="text-textColor2 dark:text-bgColor font-extrabold lg:text-2xl text-base">
                 {events.find((event) => event._id === img.event_id)?.name || ""}
               </div>
