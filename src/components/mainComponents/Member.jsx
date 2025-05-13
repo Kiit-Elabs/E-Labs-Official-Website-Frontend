@@ -65,7 +65,7 @@ function Member() {
   let memberDetails = useSelector((state) => state.memberDetails);
 
   return (
-    <div className="w-full flex flex-col items-center justify-center text-center mt-24 dark:bg-[radial-gradient(circle_at_center,#fff_1%,#ffedde_20%,#ffd4b3_50%)] mb-32 px-3 h-full">
+    <div className="w-full flex flex-col items-center justify-center text-center mt-24 dark:bg-[#ffdab9]">
       <h1 className="sm:text-5xl text-4xl font-black mb-14 text-textColor1 mx-3 text-balance">
         Meet With Our Team
       </h1>

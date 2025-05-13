@@ -21,7 +21,7 @@ function FirstPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center flex-grow dark:bg-[radial-gradient(circle_at_center,#fff_10%,#ffedde_30%,#ffd4b3_80%)]">
+    <div className="flex flex-col items-center justify-center flex-grow dark:bg-[#ffdab9] ">
       <div className="flex scale-95 flex-col items-center justify-center gap-6 w-full">
         <motion.figure
           variants={firstVariant}
@@ -30,6 +30,7 @@ function FirstPage() {
           transition="transition"
         >
           <img
+            className=""
             src="https://res.cloudinary.com/dpqdgcipi/image/upload/v1719200986/Trasnparent12_1_d7siyr.png"
             width={256}
           />

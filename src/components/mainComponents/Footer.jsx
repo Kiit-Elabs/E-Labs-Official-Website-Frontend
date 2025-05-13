@@ -5,7 +5,7 @@ import Social from "../subComponents/Social";
 
 function Footer() {
   return (
-    <div className="backdrop-blur-lg dark:backdrop-blur-lg dark:bg-[#ffd4b3] rounded-t-md bottom-0 w-full min-h-64 gap-10 max-[467px]:gap-10 flex flex-col flex-wrap items-center justify-center border-x border-t border-textColor1 mb-4">
+    <div className="backdrop-blur-lg dark:backdrop-blur-lg dark:bg-[#ffdab9] rounded-t-md bottom-0 w-full min-h-64 gap-10 max-[467px]:gap-10 flex flex-col flex-wrap items-center justify-center border-x border-t border-textColor1 mb-4">
       <div className="flex flex-wrap w-full items-center justify-evenly">
         <figure>
           <img

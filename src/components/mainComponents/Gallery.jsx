@@ -2,7 +2,7 @@ import EventSliderContainer from "../subComponents/EventSliderContainer";
 import PhotoGallery from "../subComponents/PhotoGallery";
 function Gallery() {
   return (
-    <div className="dark:bg-[radial-gradient(circle_at_center,#fff_1%,#ffedde_10%,#ffd4b3_40%)] px-3">
+    <div className="dark:bg-[#ffdab9] px-3">
       {/* <h1 className="lg:text-5xl sm:text-5xl text-4xl text-center font-bold text-textColor1 my-8">
         Glimpses
       </h1>
