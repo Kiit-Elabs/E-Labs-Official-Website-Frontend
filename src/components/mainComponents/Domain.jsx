@@ -5,7 +5,7 @@ function Domain() {
   let stdmt = useSelector((state) => state.studyMaterials);
 
   return (
-    <div className="w-full font-verna mt-12 h-full flex flex-col items-center justify-center">
+    <div className="w-full font-verna mt-12 h-full flex flex-col items-center justify-center dark:bg-[radial-gradient(circle_at_center,#fff_1%,#ffedde_20%,#ffd4b3_50%)]">
       <h1 className="text-4xl text-balance md:text-5xl font-black mb-8 text-textColor1 mx-3 text-center">
         Introducing Our Domains
       </h1>

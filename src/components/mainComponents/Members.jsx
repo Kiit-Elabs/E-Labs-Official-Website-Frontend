@@ -293,7 +293,7 @@ function Members({ isHomePage = false }) {
             classNames={{
               popoverContent: "dark",
             }}
-            className="dark"
+            className="dark dark:light"
             onSelectionChange={(keys) => {
               if (keys instanceof Set && keys.size > 0) {
                 setSelectedDomain(Array.from(keys)[0]);

@@ -12,7 +12,7 @@ import ImageButton from "../subComponents/ImageButton";
 // import { signOut } from "firebase/auth"; // Ensure you import signOut
 
 const navLinks = [
-  { href: "#", label: "Home", route: "/" },
+  { href: "#home", label: "Home", route: "/" },
   { href: "#aboutPage", label: "About", route: "/about" },
   { href: "#domain", label: "Domains", route: "/domain" },
   { href: "#eventPage", label: "Events", route: "/events" },
@@ -38,7 +38,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200;
+      const scrollPosition = window.scrollY;
       let currentSection = "";
 
       navLinks.forEach(({ href }) => {
@@ -114,7 +114,9 @@ const Navbar = () => {
         <Link
           key={href}
           to={targetHref}
-          className="hover:text-textColor2 text-2xl"
+          className={`hover:text-textColor1 text-2xl ${
+            location.pathname === route ? "text-textColor1" : ""
+          }`}
           onClick={() => {
             onClickHandler();
             closeMenu(); // Close the menu on link click

@@ -14,7 +14,7 @@ function MemberCard({
   return (
     <div className="flex flex-wrap-reverse justify-center items-center group h-full">
       <div
-        className={`w-[240px] flex flex-col justify-center items-center border-2 border-textColor1 rounded-2xl backdrop-blur-lg h-full`}
+        className={`w-[240px] flex flex-col justify-center items-center border-2 border-textColor1 rounded-2xl backdrop-blur-lg h-full dark:shadow-sm`}
       >
         <div className="h-1/2 justify-center items-center p-5">
           <Image
@@ -23,11 +23,10 @@ function MemberCard({
               /ar_1:1,c_(fill|auto),g_auto/g,
               "w_1024,ar_1:1,c_auto,g_auto,f_auto"
             )}
-            alt={`${name}'s image`} 
+            alt={`${name}'s image`}
             radius="lg"
             isBlurred
-          >
-          </Image>
+          ></Image>
         </div>
         <div
           className={`flex flex-col justify-center items-center ${
@@ -40,7 +39,7 @@ function MemberCard({
             </h1>
           </div>
           <div className="h-1/3 flex flex-col items-center justify-center">
-            <p className="text-lg text-textColor2 font-medium">
+            <p className="text-lg text-textColor2 dark:text-bgColor dark:font-semibold font-medium">
               {position.toUpperCase()}
             </p>
             {!membersPage && (
@@ -49,12 +48,12 @@ function MemberCard({
               </p>
             )}
           </div>
-          <div className="h-1/3 flex flex-row items-end justify-center gap-5  ">
+          <div className="h-1/3 flex flex-row items-end justify-center gap-5 text-textColor2 dark:text-bgColor">
             {github && (
               <a
                 href={github}
                 target="_blank"
-                className="text-textColor2 hover:text-textColor1 hover:scale-105 duration-200 ease-in-out transition-all"
+                className=" hover:text-textColor1 hover:scale-105 duration-200 ease-in-out transition-all"
               >
                 <FaGithub className="text-[22px]"></FaGithub>
               </a>
@@ -63,7 +62,7 @@ function MemberCard({
               <a
                 href={linkedin}
                 target="_blank"
-                className="text-textColor2 hover:text-textColor1 hover:scale-105 duration-200 ease-in-out transition-all"
+                className="hover:text-textColor1 hover:scale-105 duration-200 ease-in-out transition-all"
               >
                 <FaLinkedin className="text-[22px]"></FaLinkedin>
               </a>
@@ -72,7 +71,7 @@ function MemberCard({
               <a
                 href={instagram}
                 target="_blank"
-                className="text-textColor2 hover:text-textColor1 hover:scale-105 duration-200 ease-in-out transition-all"
+                className="hover:text-textColor1 hover:scale-105 duration-200 ease-in-out transition-all"
               >
                 <FaInstagram className="text-[22px]"></FaInstagram>
               </a>

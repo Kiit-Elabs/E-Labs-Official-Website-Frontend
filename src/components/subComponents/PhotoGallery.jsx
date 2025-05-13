@@ -27,10 +27,9 @@ const Gallery = ({ events }) => {
               className="w-full h-full object-cover group-hover:opacity-50 group-hover:blur-sm transition duration-300"
               src={img.url.replace("/upload", "/upload/c_auto,g_auto,f_auto")}
               alt={img._id}
-              isBlurred
             />
             <div className="absolute inset-0 group-hover:bg-gradient-to-tr group-hover:from-textColor1/40 group-hover:to-transparent items-end justify-start px-5 py-3 invisible group-hover:visible flex">
-              <div className="text-white font-extrabold lg:text-2xl text-base">
+              <div className="text-textColor2 dark:text-bgColor font-extrabold lg:text-2xl text-base">
                 {events.find((event) => event._id === img.event_id)?.name || ""}
               </div>
             </div>

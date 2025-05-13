@@ -73,7 +73,7 @@ function Events() {
   };
 
   return (
-    <div className="relative w-full max-w-6xl px-4 mt-20 mx-auto mb-24">
+    <div className="relative w-full max-w-6xl px-4 mt-20 mx-auto mb-24 dark:bg-[radial-gradient(circle_at_center,#fff_1%,#ffedde_20%,#ffd4b3_50%)]">
       <h1 className="sm:text-5xl text-4xl font-black mb-8 text-textColor1 mx-5 text-balance text-center">
         Our Past and Upcoming Events
       </h1>
