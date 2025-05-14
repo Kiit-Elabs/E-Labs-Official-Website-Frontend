@@ -291,7 +291,7 @@ function Members({ isHomePage = false }) {
             size="lg"
             defaultSelectedKeys={["coordinator"]}
             classNames={{
-              popoverContent: "dark dark:light",
+              popoverContent: "dark",
             }}
             className="dark dark:light"
             onSelectionChange={(keys) => {
@@ -322,7 +322,7 @@ function Members({ isHomePage = false }) {
                   color="warning"
                   classNames={{
                     title:
-                      "font-verna dark:text-bgColor dark:hover:text-textColor1",
+                      "font-verna",
                   }}
                 >
                   {domainList.find((d) => d.value === domain)?.label}
