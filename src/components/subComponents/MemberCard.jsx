@@ -14,7 +14,7 @@ function MemberCard({
   return (
     <div className="flex flex-wrap-reverse justify-center items-center group h-full">
       <div
-        className={`w-[240px] flex flex-col justify-center items-center border-2 border-textColor1 rounded-2xl backdrop-blur-lg h-full dark:shadow-sm dark:bg-[#ffccaa]`}
+        className={`w-[240px] flex flex-col justify-center items-center border-2 border-textColor1 rounded-2xl backdrop-blur-lg h-full dark:shadow-sm`}
       >
         <div className="h-1/2 justify-center items-center p-5">
           <Image

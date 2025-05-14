@@ -21,7 +21,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="body dark:bg-[#ffdab9] dark:backdrop-blur-lg " >
+    <div className="body dark:bg-[#ffd4b3] dark:backdrop-blur-lg " >
       <section
         id="home"
         className="min-h-screen flex flex-col justify-center items-center"

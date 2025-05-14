@@ -28,7 +28,7 @@ function Domain() {
               key={element.domain}
             >
               <div
-                className="flex font-verna flex-col items-center justify-center rounded-[15px] border-[4px] border-[#F7941D] bg-[#0B1215] dark:bg-[#ffccaa] h-52 gap-2.5 w-full p-2"
+                className="flex font-verna flex-col items-center justify-center rounded-[15px] border-[4px] border-[#F7941D] bg-[#0B1215] dark:bg-[#ffccaa]/60 h-52 gap-2.5 w-full p-2"
               >
                 <div className="flex items-end justify-center w-full">
                   <img
