@@ -14,7 +14,7 @@ function MemberCard({
   return (
     <div className="flex flex-wrap-reverse justify-center items-center group h-full">
       <div
-        className={`w-[240px] flex flex-col justify-center items-center border-2 border-textColor1 rounded-2xl backdrop-blur-lg h-full dark:shadow-sm`}
+        className={`w-[240px] flex flex-col justify-center items-center border-2 border-textColor1 rounded-2xl backdrop-blur-lg h-full dark:shadow-sm dark:bg-[#ffccaa]`}
       >
         <div className="h-1/2 justify-center items-center p-5">
           <Image
@@ -55,7 +55,7 @@ function MemberCard({
                 target="_blank"
                 className=" hover:text-textColor1 hover:scale-105 duration-200 ease-in-out transition-all"
               >
-                <FaGithub className="text-[22px]"></FaGithub>
+                <FaGithub className="text-[22px]" />
               </a>
             )}
             {linkedin && (
@@ -64,7 +64,7 @@ function MemberCard({
                 target="_blank"
                 className="hover:text-textColor1 hover:scale-105 duration-200 ease-in-out transition-all"
               >
-                <FaLinkedin className="text-[22px]"></FaLinkedin>
+                <FaLinkedin className="text-[22px]" />
               </a>
             )}
             {instagram && (
@@ -73,7 +73,7 @@ function MemberCard({
                 target="_blank"
                 className="hover:text-textColor1 hover:scale-105 duration-200 ease-in-out transition-all"
               >
-                <FaInstagram className="text-[22px]"></FaInstagram>
+                <FaInstagram className="text-[22px]" />
               </a>
             )}
           </div>

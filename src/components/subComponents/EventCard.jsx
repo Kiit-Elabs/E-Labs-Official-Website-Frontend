@@ -28,7 +28,7 @@ import { Image } from "@heroui/react";
 
 function EventCard({ imgSource, eventId, eventName }) {
   return (
-    <div className="w-fit border-2 border-textColor1 rounded-xl h-auto p-4 transform hover:scale-105 transition-all ease-in-out flex flex-col gap-6 hover:shadow-[0_0_20px_rgba(255,140,0,0.5)] duration-300">
+    <div className="w-fit border-2 border-textColor1 rounded-xl h-auto p-4 transform hover:scale-105 transition-all ease-in-out flex flex-col gap-6 hover:shadow-[0_0_20px_rgba(255,140,0,0.5)] duration-300 dark:bg-[#ffccaa]">
       {/* <div className="overflow-hidden w-48 h-48 sm:h-64 md:h-72 rounded-md aspect-square">
         <figure className="w-full h-full">
           <img

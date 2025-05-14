@@ -28,11 +28,7 @@ function Domain() {
               key={element.domain}
             >
               <div
-                className="flex font-verna flex-col items-center justify-center rounded-[15px] border-[4px] border-[#F7941D] bg-[#0B1215] h-52 gap-2.5 w-full p-2"
-                style={{
-                  borderColor: "var(--Border-Gradient, #F7941D)",
-                  backgroundColor: "var(--Background-Color, #0B1215)",
-                }}
+                className="flex font-verna flex-col items-center justify-center rounded-[15px] border-[4px] border-[#F7941D] bg-[#0B1215] dark:bg-[#ffccaa] h-52 gap-2.5 w-full p-2"
               >
                 <div className="flex items-end justify-center w-full">
                   <img
@@ -42,7 +38,7 @@ function Domain() {
                   />
                 </div>
                 <div className="flex items-start justify-center w-full">
-                  <p className="text-center h-[50%] font-bold text-[22px] w-full text-wrap leading-normal text-[#FFFAFA]">
+                  <p className="text-center h-[50%] font-bold text-[22px] w-full text-wrap leading-normal text-[#FFFAFA] dark:text-black">
                     {element.domain}
                   </p>
                 </div>
@@ -50,24 +46,6 @@ function Domain() {
             </div>
           ))}
         </div>
-        {/* <div
-          className="text-center font-bold leading-normal pb-[1%] pt-[3%] text-[180%] text-[#F7941D]"
-          style={{
-            color: "var(--Primary-Color, #F7941D)",
-            fontFamily: '"Gotham Black"',
-          }}
-        >
-          <p>STUDY MATERIAL</p>
-        </div> */}
-        {/* <div className="w-full flex items-center justify-center pb-[3%]">
-          <div
-            className="w-[1060px] h-[4px] bg-gradient-to-b from-[#F7941D] to-[#915711]"
-            style={{
-              background:
-                "linear-gradient(180deg, #F7941D -348.21%, #915711 0.22%)",
-            }}
-          ></div>
-        </div> */}
       </div>
     </div>
   );

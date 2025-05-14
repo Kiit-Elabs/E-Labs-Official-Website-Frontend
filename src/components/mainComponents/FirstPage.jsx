@@ -30,6 +30,7 @@ function FirstPage() {
           transition="transition"
         >
           <img
+            className=""
             src="https://res.cloudinary.com/dpqdgcipi/image/upload/v1719200986/Trasnparent12_1_d7siyr.png"
             width={256}
           />
