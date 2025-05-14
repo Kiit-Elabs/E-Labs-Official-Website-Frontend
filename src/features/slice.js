@@ -5,7 +5,7 @@ const initialState = {
     {
       id: 101,
       name: "Design of Development",
-      img: "https://res.cloudinary.com/dpqdgcipi/image/upload/v1720237114/1676480037898_jypfgp.jpg",
+      img: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
       venue: "Campus 12, Auditorium",
       date: "25-07-2024",
       shortDescription: "",
@@ -15,7 +15,7 @@ const initialState = {
     {
       id: 201,
       name: "Web Development",
-      img: "https://thumbs.dreamstime.com/b/flower-sun-sunny-summer-day-91542486.jpg",
+      img: "https://static.remove.bg/sample-gallery/graphics/bird-thumbnail.jpg",
       venue: "Campus 12, Auditorium",
       date: "25-07-2024",
       shortDescription: "",
@@ -300,7 +300,7 @@ const initialState = {
     },
 
     {
-      domain: "IoT & EMBEDDED",
+      domain: "IoT & EMBEDDED SYSTEMS",
       img: "/Images/Logo/IoT&Embedded.png",
       sec: "iot",
       resUrls: [
@@ -346,7 +346,7 @@ const initialState = {
     },
     {
       domain: "GAME DEVELOPMENT & AR/VR",
-      img: "/Images/Logo/GD.png",
+      img: "/Images/Logo/gamedev.png",
       sec: "iot",
       resUrls: [
         {

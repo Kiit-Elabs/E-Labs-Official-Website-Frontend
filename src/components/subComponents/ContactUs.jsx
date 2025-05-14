@@ -30,16 +30,16 @@ function ContactUs() {
             href="tel:0674 2725113"
             className="hover:text-textColor1 focus:text-textColor1 duration-200 text-textColor2 dark:text-black"
           >
-            0674 2725113
+            +91 7063887497
           </a>
         </div>
         <div className=" duration-200 flex gap-2 justify-center sm:justify-start items-center">
           <img src="../Images/circle-envelope (1).png" alt="" width={18} />
           <a
-            href="mailto: elabs.electronics@kiit.ac.in"
+            href="mailto: support@elabskiit.in"
             className="text-textColor2 dark:text-black text-sm duration-200 hover:text-textColor1 "
           >
-            elabs.electronics@kiit.ac.in
+            support@elabskiit.in
           </a>
         </div>
       </div>

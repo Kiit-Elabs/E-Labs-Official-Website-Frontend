@@ -5,22 +5,25 @@ function Domain() {
   let stdmt = useSelector((state) => state.studyMaterials);
 
   return (
-    <div className="w-full font-verna mt-12 h-full flex flex-col items-center justify-center ">
+    <div className="w-full font-verna mt-12 h-full flex flex-col items-center justify-center dark:bg-[radial-gradient(circle_at_center,#fff_1%,#ffedde_20%,#ffd4b3_50%)]">
       <h1 className="text-4xl text-balance md:text-5xl font-black mb-8 text-textColor1 mx-3 text-center">
         Introducing Our Domains
       </h1>
-      <div
+
+      {/* <div
         className="w-[90%] h-[4px] bg-gradient-to-b from-[#F7941D] to-[#915711]"
         style={{
           background:
             "linear-gradient(180deg, #F7941D -348.21%, #915711 0.22%)",
         }}
-      ></div>
-      <div className="rounded-[32px] border-[3px] border-[#F7941D] mt-[4%] bg-[#0B1215] dark:bg-[#ffdab9] w-[90%] h-full flex flex-col items-center justify-evenly">
+      ></div> */}
+      
+      <div className="rounded-[32px] border-[3px] border-[#F7941D] mt-[4%] bg-[#0B1215] dark:bg-[#ffd4b3] w-[90%] h-full flex flex-col items-center justify-evenly mb-20">
         <div className="flex gap-7 px-4 items-center flex-wrap w-full justify-center py-10">
           {stdmt.map((element) => (
-            <a
-              href="#"
+            <div
+              // href={`/courses/${element.sec}`}
+              // href={"#"}
               className="flex hover:scale-105 transition-all ease-in-out duration-300 w-full sm:w-[45%] md:w-[30%] max-w-[350px]"
               key={element.domain}
             >
@@ -40,7 +43,7 @@ function Domain() {
                   </p>
                 </div>
               </div>
-            </a>
+            </div>
           ))}
         </div>
       </div>

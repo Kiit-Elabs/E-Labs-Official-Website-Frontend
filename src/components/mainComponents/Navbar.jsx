@@ -14,9 +14,9 @@ import ImageButton from "../subComponents/ImageButton";
 const navLinks = [
   { href: "#home", label: "Home", route: "/" },
   { href: "#aboutPage", label: "About", route: "/about" },
-  { href: "#domain", label: "Domain", route: "" },
-  // { href: "#eventPage", label: "Events", route: "/events" },
-  // { href: "#membersPage", label: "Members", route: "/members" },
+  { href: "#domain", label: "Domains", route: "/domain" },
+  { href: "#eventPage", label: "Events", route: "/events" },
+  { href: "#membersPage", label: "Members", route: "/members" },
   { href: "#galleryPage", label: "Gallery", route: "/gallery" },
   { href: "#feedbackPage", label: "Feedback", route: "/feedback" },
 ];
@@ -38,7 +38,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200;
+      const scrollPosition = window.scrollY;
       let currentSection = "";
 
       navLinks.forEach(({ href }) => {
@@ -65,6 +65,16 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [activeSection]);
 
+  useEffect(() => {
+    // Check localStorage for theme preference on mount
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      const isDark = savedTheme === "dark";
+      document.querySelector("html").classList.toggle("dark", isDark);
+      setDark(isDark);
+    }
+  }, []);
+
   const toggleMenu = () => {
     if (!isMenuOpen) {
       window.scrollTo(0, 0); // Scroll to the top when opening the menu
@@ -74,8 +84,10 @@ const Navbar = () => {
   const closeMenu = () => setIsMenuOpen(false);
 
   const toggleTheme = () => {
-    document.querySelector("html").classList.toggle("dark");
+    const newTheme = !dark ? "dark" : "light";
+    document.querySelector("html").classList.toggle("dark", !dark);
     setDark((prev) => !prev);
+    localStorage.setItem("theme", newTheme); // Save theme preference
   };
 
   // const handleSignOut = async () => {
@@ -102,7 +114,9 @@ const Navbar = () => {
         <Link
           key={href}
           to={targetHref}
-          className="hover:text-textColor2 text-2xl"
+          className={`hover:text-textColor1 text-2xl ${
+            location.pathname === route ? "text-textColor1" : ""
+          }`}
           onClick={() => {
             onClickHandler();
             closeMenu(); // Close the menu on link click
@@ -125,7 +139,7 @@ const Navbar = () => {
           {renderNavLinks()}
         </div>
         <div className="flex items-center gap-2 right-4">
-          <ImageButton imageSource={dark ? day : night} func={toggleTheme} />
+          <ImageButton imageSource={day} func={toggleTheme} />
           <div className="md:hidden">
             <ImageButton
               imageSource={isMenuOpen ? close : menu}

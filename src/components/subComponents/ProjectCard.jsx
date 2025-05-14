@@ -1,4 +1,4 @@
-import { Image, Avatar } from "@nextui-org/react";
+import { Image, Avatar } from "@heroui/react";
 import React from "react";
 
 const ProjectCard = ({ project }) => {

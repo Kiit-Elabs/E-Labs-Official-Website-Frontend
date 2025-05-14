@@ -21,8 +21,8 @@ function FirstPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center flex-grow dark:bg-[#ffdab9] ">
-      <div className="flex scale-95 flex-col items-center justify-center gap-6 w-full">
+    <div className="flex flex-col items-center justify-center flex-grow dark:bg-[radial-gradient(circle_at_center,#fff_10%,#ffedde_30%,#ffd4b3_60%)]">
+      <div className="flex scale-95 flex-col items-center justify-center gap-6 w-full mt-6">
         <motion.figure
           variants={firstVariant}
           initial="initial"

@@ -5,7 +5,7 @@ import {
   TimeInput,
   Image,
   DateInput,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import { FaCamera } from "react-icons/fa";
 import { FileUploader } from "../subComponents/FileUploader";
 

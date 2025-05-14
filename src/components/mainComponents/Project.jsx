@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaGithub } from "react-icons/fa6";
 import { FiExternalLink } from "react-icons/fi";
 import { projects } from "../../constants/Projects";
-import { Avatar, Image, ScrollShadow } from "@nextui-org/react";
+import { Avatar, Image, ScrollShadow } from "@heroui/react";
 import ProjectCard from "../subComponents/ProjectCard";
 
 const Project = () => {
