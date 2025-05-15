@@ -103,7 +103,7 @@ const Navbar = () => {
         <a
           key={href}
           href={targetHref}
-          className={`hover:text-textColor2 dark:hover:text-textColor1 text-[22px] ${
+          className={`hover:text-textColor2 dark:hover:text-textColor1 text-[22px] dark:font-medium ${
             activeSection === href.substring(1) ? "text-textColor1" : ""
           }`}
           onClick={onClickHandler}
