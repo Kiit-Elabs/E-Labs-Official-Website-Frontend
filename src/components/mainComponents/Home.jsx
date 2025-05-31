@@ -37,9 +37,9 @@ function Home() {
       <section id="eventPage">
         <Events />
       </section>
-      <section id="membersPage">
+      {/* <section id="membersPage">
         <Member />
-      </section>
+      </section> */}
       <section id="galleryPage">
         <Gallery />
       </section>
